@@ -1,5 +1,6 @@
 import React from 'react';
 import {
+	Button,
 	Image,
 	Platform,
 	ScrollView,
@@ -8,6 +9,7 @@ import {
 	TouchableOpacity,
 	View,
 } from 'react-native';
+
 import { WebBrowser } from 'expo';
 
 import { MonoText } from '../components/StyledText';
@@ -18,6 +20,9 @@ export default class HomeScreen extends React.Component {
 	};
 
 	render() {
+		const { navigation } = this.props
+		const { navigate } = navigation
+
 		return (
 			<View style={styles.container}>
 				<ScrollView style={styles.container} contentContainerStyle={styles.contentContainer}>
@@ -31,6 +36,13 @@ export default class HomeScreen extends React.Component {
 							style={styles.welcomeImage}
 						/>
 					</View>
+
+					<Button
+						onPress={() => navigate('WOWScreen')}
+						title="PRESS ME TO BE WOWED"
+						color="#841584"
+						accessibilityLabel="Navigation"
+					/>
 
 					<View style={styles.getStartedContainer}>
 						{this._maybeRenderDevelopmentModeWarning()}
